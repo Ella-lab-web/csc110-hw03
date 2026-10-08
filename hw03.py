@@ -1,15 +1,14 @@
 """
-Name: (put your name here)
-Peers: (add any collaborators)
-References: (anything you checked to solve this)
+Name: Ella Zhao
+Peers: None
+References: Powepoint Slides
 """
 
 # imported modules
 import statistics # let's us use mean, median, mode
 
 # This is a global variable (seen by all local scopes)
-grades = [0,0,0,0,0] # initialized with five zeros
-
+grades = [0,0,0,0,0]# initialized with five zeros
 # Task 1:
 #  Complete the function "read_five_ints" below:
 def read_five_ints():
@@ -25,11 +24,23 @@ def read_five_ints():
     for idx in range ( len(grades) ):
         # for each idx in 0, 1,... 4 do:
         # check if the input is not a digit print error
+     in_str = input("Give me the next grade in [0 to 10]:")
+
+     if not in_str.isdigit():
+            print("Error in read_five_ints: input string is not for an integer")
+            exit()
+     else:
+            num = int(in_str)
+     if num < 0 or num > 10:
+            print("Error in read_five_ints: input integer outside of range")
+            exit()
+     grades[idx] = num
+     
         # convert to int
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
 
-        pass
+      
 
     #Anything with this indentation is NO LONGER inside the loop
 
@@ -45,8 +56,24 @@ def pick_averaging_method():
     Any other input prints
     'Error in pick_averaging_method: incorrect option picked'.
     """
-    pass
-
+    user_input = input("Pick 'a' for mean, 'b' for median, 'c' for mode: ")
+    if user_input == "a":
+        print("picked: Mean")
+        avg = statistics.mean(grades)
+        return avg
+    if user_input == "b":
+        print("picked: Median")
+        avg = statistics.median(grades)
+        return avg
+    if user_input == "c":
+        print("picked: Mode")
+        avg = statistics.mode(grades)
+        return avg
+    else:
+        print("Error in pick_averaging_method: incorrect option picked")
+        
+        
+        
 # Task 3:
 #  Complete the function "pick_visualization" below:
 def pick_visualization(average):
